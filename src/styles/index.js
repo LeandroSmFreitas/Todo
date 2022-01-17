@@ -9,6 +9,7 @@ const GlobalStyles = createGlobalStyle`
         --fontTitle: 'Roboto Mono';
         --subTitle: "Poppins";
         --color-subContainerRight: #20413e;
+        --button-color: #4A7870;
         }
 
     body {
@@ -18,8 +19,16 @@ const GlobalStyles = createGlobalStyle`
         font-size: 16px;
         h1{
             color: var(--white);
-            font-family: var(--fontTitle);
+            font-family: var(--subTitle);
             font-size: 1.5rem;
+        }
+        h3{
+            color: var(--white);
+            font-family: var(--fontTitle);
+        }
+        p{
+            margin: 0 0 10px 0;
+            color: var(--white);
         }
     }
     
