@@ -12,6 +12,7 @@ export const ContainerInput = styled.div `
     svg{
         margin-left: 2%;
     }
+    border: ${({border}) => border};
 `
 
 export const InputStyled = styled.input `

@@ -6,6 +6,7 @@ export const DbContext = createContext()
 export const DbProvider = ({ children }) => {
     const [database, setDatabase] = useState([]);
     const [token, setToken] = useState();
+    const [user, setUser] = useState();
     const [id, setId] = useState(1);
 
     const CreateUser = (data) => {
@@ -32,12 +33,19 @@ export const DbProvider = ({ children }) => {
         setToken(localStorage.getItem('@token'))
     }
 
+    const FindUser = (id) => {
+        setUser(database.find(user => user.id === id))
+    }
+
+
     return (
         <DbContext.Provider value={{
             CreateUser,
             LoginUser,
             GetToken,
-            token
+            token,
+            FindUser,
+            user
         }}>
             {children}
         </DbContext.Provider>
