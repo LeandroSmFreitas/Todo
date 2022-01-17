@@ -4,13 +4,16 @@ import './index.css';
 import App from './App';
 import GlobalStyles from './styles';
 import { BrowserRouter } from 'react-router-dom';
+import Providers from './Provider';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <GlobalStyles/>
-      <App />
-    </BrowserRouter>
+    <Providers>
+      <BrowserRouter>
+        <GlobalStyles/>
+        <App />
+      </BrowserRouter>
+    </Providers>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -10,6 +10,7 @@ const GlobalStyles = createGlobalStyle`
         --subTitle: "Poppins";
         --color-subContainerRight: #20413e;
         --button-color: #4A7870;
+        --error: #D64345;
         }
 
     body {

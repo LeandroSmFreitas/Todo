@@ -24,7 +24,11 @@ export const SubContainerRight = styled.div `
     align-items: center;
     justify-content: center;
     background: var(--color-subContainerRight);
-
+    form{
+        span{
+            color: var(--error);
+        };
+    }
 `
 
 export const ContainerSvg = styled.img`
