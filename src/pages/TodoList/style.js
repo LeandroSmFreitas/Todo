@@ -13,6 +13,7 @@ export const Container = styled.div `
 
 export const ContainerAddTasks = styled.form `
     width: 50%;
+    min-width: 758px;
     display: flex;
 `
 
@@ -26,10 +27,12 @@ export const ContainerAllTitleOfImportance = styled.main `
     display: flex;
     margin-top: 100px;
     justify-content: space-around;
+    flex-wrap: wrap;
 `
 
 export const ContainerTasks = styled.div `
-    width: 300px;
+    width: 15%;
+    min-width: 156px;
 `
 
 export const ContainerTitleTask = styled.div `
