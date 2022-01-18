@@ -14,6 +14,7 @@ import * as uuid from 'uuid'
 export default function TodoList() {
     const [valueSelect, setValueSelect] = useState('')
     const [userTasks, setUserTasks] = useState([])
+    const {token, GetToken } = useContext(DbContext)
     const [userTasksFinished, setUserTasksFinished] = useState([])
     
     const schema = yup.object().shape({
@@ -24,6 +25,10 @@ export default function TodoList() {
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema),
     });
+    
+    if(!token){
+        GetToken()
+    }
     
     const onSubmitForm = (data) => {
         const task = {
