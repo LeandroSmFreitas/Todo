@@ -41,16 +41,20 @@ export default function TodoList() {
     }
 
     const FinishedTask = (id) => {
-        console.log(userTasks)
-        let task = userTasks.find(task => task.id = id)
+        let task = userTasks.find(task => task.id === id)
         setUserTasks(userTasks.filter(task => task.id !== id))
         setUserTasksFinished([...userTasksFinished, task])
     }
 
     const RevertFinishedTask = (id) => {
-        let task = userTasksFinished.find(task => task.id = id)
+        let task = userTasksFinished.find(task => task.id === id)
         setUserTasksFinished(userTasksFinished.filter(task => task.id !== id))
         setUserTasks([...userTasks, task])
+    }
+
+    const DeleteTask = (id) => {
+        setUserTasksFinished(userTasksFinished.filter(task => task.id !== id))
+        setUserTasks(userTasks.filter(task => task.id !== id))
     }
 
 
@@ -76,7 +80,7 @@ export default function TodoList() {
                     </ContainerTitleTask>
                     {userTasks.map((element) => {
                         if(element.importance === 'Urgente'){
-                            return <CardOfTask key={element.id} title={element.name} click={() => FinishedTask(element.id)}/>
+                            return <CardOfTask key={element.id} title={element.name} click={() => FinishedTask(element.id)} deleteClick={() => DeleteTask(element.id)}/>
                         }
                     })}
                 </ContainerTasks>
@@ -86,7 +90,7 @@ export default function TodoList() {
                     </ContainerTitleTask>
                     {userTasks.map((element) => {
                         if(element.importance === 'Prioridade'){
-                            return <CardOfTask key={element.id} title={element.name} click={() => FinishedTask(element.id)}/>
+                            return <CardOfTask key={element.id} title={element.name} click={() => FinishedTask(element.id)} deleteClick={() => DeleteTask(element.id)}/>
                         }
                     })}
                 </ContainerTasks>
@@ -96,7 +100,7 @@ export default function TodoList() {
                     </ContainerTitleTask>
                     {userTasks.map((element) => {
                         if(element.importance === 'Importante'){
-                            return <CardOfTask key={element.id} title={element.name} click={() => FinishedTask(element.id)}/>
+                            return <CardOfTask key={element.id} title={element.name} click={() => FinishedTask(element.id)} deleteClick={() => DeleteTask(element.id)}/>
                         }
                     })}
                 </ContainerTasks>
@@ -106,7 +110,7 @@ export default function TodoList() {
                     </ContainerTitleTask>
                     {userTasks.map((element) => {
                         if(element.importance === 'Não importante'){
-                            return <CardOfTask key={element.id} title={element.name} click={() => FinishedTask(element.id)}/>
+                            return <CardOfTask key={element.id} title={element.name} click={() => FinishedTask(element.id)} deleteClick={() => DeleteTask(element.id)}/>
                         }
                     })}
                 </ContainerTasks>
@@ -115,7 +119,7 @@ export default function TodoList() {
                         <p>Finalizadas</p>
                     </ContainerTitleTask>
                     {userTasksFinished.map((element) => {
-                        return <CardOfTask key={element.id} title={element.name} click={() => RevertFinishedTask(element.id)} taskFinished={true}/>
+                        return <CardOfTask key={element.id} title={element.name} click={() => RevertFinishedTask(element.id)} taskFinished={true} deleteClick={() => DeleteTask(element.id)}/>
                     })}
                 </ContainerTasks>
             </ContainerAllTitleOfImportance>

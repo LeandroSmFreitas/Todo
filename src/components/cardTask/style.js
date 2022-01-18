@@ -26,4 +26,5 @@ export const ButtonStyled = styled.button `
     border: none;
     font-family: var(--subTitle);
     cursor: pointer;
+    display: ${({ display }) => display}
 `
