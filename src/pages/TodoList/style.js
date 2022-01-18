@@ -11,7 +11,7 @@ export const Container = styled.div `
     }
 `
 
-export const ContainerAddTasks = styled.div `
+export const ContainerAddTasks = styled.form `
     width: 50%;
     display: flex;
 `

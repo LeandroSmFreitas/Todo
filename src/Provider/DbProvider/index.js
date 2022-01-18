@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const DbContext = createContext()
 
@@ -15,16 +15,18 @@ export const DbProvider = ({ children }) => {
             name: data.name,
             email: data.email,
             password: data.password,
-            task: [],
         }
         setDatabase([...database, newUser])
         localStorage.setItem('@token', id)
+        setUser(newUser)
+        setToken(id)
         setId(id + 1)
     }
 
     const LoginUser = (data) => {
         const user = (database.find(user => user.email === data.email && user.password === data.password))
         if(user){
+            setToken(user.id)
             return user.id
         }
     }
@@ -33,19 +35,13 @@ export const DbProvider = ({ children }) => {
         setToken(localStorage.getItem('@token'))
     }
 
-    const FindUser = (id) => {
-        setUser(database.find(user => user.id === id))
-    }
-
-
     return (
         <DbContext.Provider value={{
             CreateUser,
             LoginUser,
             GetToken,
             token,
-            FindUser,
-            user
+            user,
         }}>
             {children}
         </DbContext.Provider>

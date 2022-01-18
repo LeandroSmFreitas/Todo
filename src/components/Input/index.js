@@ -1,7 +1,7 @@
 import React from 'react'
 import { ContainerInput, InputStyled } from './style'
 
-export default function Input({ Icon, widthContainer, heightContainer, borderRadius, backgroundContainer='transparent', placeHolder, type, marginContainer, border, register, name }) {
+export default function Input({ Icon, widthContainer, heightContainer, borderRadius, backgroundContainer='transparent', placeHolder, type, marginContainer, border, register = () => {}, name }) {
     return (
         <ContainerInput 
         widthContainer={widthContainer} 
@@ -11,7 +11,7 @@ export default function Input({ Icon, widthContainer, heightContainer, borderRad
         marginContainer={marginContainer}
         border={border}>
             <Icon/>
-            <InputStyled placeholder={placeHolder} type={type} />
+            <InputStyled placeholder={placeHolder} type={type} {...register(name)}/>
         </ContainerInput>
     )
 }
