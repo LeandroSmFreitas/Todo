@@ -1,17 +1,16 @@
-import React, { useContext, useEffect } from 'react'
-import { Container, ContainerSvg, SubContainerLeft, SubContainerRight } from './style'
-import todoImgHome from '../../images/todo_img_home.svg'
-import Input from '../../components/Input'
-import { AiOutlineMail } from "react-icons/ai"
-import { RiLockPasswordLine } from "react-icons/ri"
-import Button from '../../components/Button'
+import React, { useContext, useEffect } from 'react';
+import { Container, ContainerSvg, SubContainerLeft, SubContainerRight } from './style';
+import todoImgHome from '../../images/todo_img_home.svg';
+import Input from '../../components/Input';
+import { AiOutlineMail } from "react-icons/ai";
+import { RiLockPasswordLine } from "react-icons/ri";
+import Button from '../../components/Button';
 import { useNavigate } from 'react-router-dom'
 import * as yup from 'yup';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
-import { toast } from 'react-toastify'
-import { DbContext } from '../../Provider/DbProvider'
-import { useState } from 'react/cjs/react.development'
+import { toast } from 'react-toastify';
+import { DbContext } from '../../Provider/DbProvider';
 
 export default function HomePage() {
     const navigate = useNavigate()
